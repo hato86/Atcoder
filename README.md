@@ -36,24 +36,16 @@ void uniq(vector<T> &v){
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    // ---- 入力例 ----
-    in(D, N);  // int D, N; cin >> D >> N;
-
-    vector<int> S(D + 2, 0); // R+1を安全に参照するために +2
-
+    in(D, N);  
+    vector<int> S(D + 2, 0); 
     for(i, 0, N){
-        in(L, R);     // int L, R; cin >> L >> R;
+        in(L, R);     
         S[L] += 1;
         S[R + 1] -= 1;
     }
-
-    // 累積和
     for(i, 0, D){
         S[i + 1] += S[i];
     }
-
-    // 出力
     for(i, 1, D + 1){
         out(S[i]);
     }
